@@ -1,0 +1,673 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="2/26/2020 4:49:58 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SSDT"
+  DTS:CreatorName="SSDT\Administrator"
+  DTS:DTSID="{39950E43-C14D-45EA-93C4-98FEE619E65B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.2000.71"
+  DTS:LocaleID="1042"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="22"
+  DTS:VersionGUID="{5DB0787E-B8F8-4D32-A1C9-7937B949DD5C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[BookSales]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{41EBBFC7-4D7F-4840-8195-010AAC2ABF28}"
+      DTS:ObjectName="BookSales">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1042"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="949"
+          DTS:ConnectionString="C:\Output\BookSales.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x002C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="title"
+              DTS:DTSID="{58D7CC01-8B15-419D-8F19-FCA43B0035CF}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ytd_sales_amount"
+              DTS:DTSID="{3B1292E4-162F-4CB5-A25A-65A0D04CF92A}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[SSIS2016.pubs.pubsuser]"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089"
+      DTS:DTSID="{51578979-F93D-4B0C-A0A6-E839ACCA699D}"
+      DTS:ObjectName="SSIS2016.pubs.pubsuser">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=SSIS2016;User ID=pubsuser;Initial Catalog=pubs;Persist Security Info=True;Application Name=SSIS-Package-{51578979-F93D-4B0C-A0A6-E839ACCA699D}SSIS2016.pubs.pubsuser;">
+          <DTS:Password
+            DTS:Name="Password"
+            Sensitive="1"
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAAcqwhezEFUqy0zExHGCISwAAAAAIAAAARABUAFMAAAAQZgAAAAEAACAAAAAd6DYgncGC0rTeg9Lx5u8RQx5SbVq3fk8DyYnWZF0RHgAAAAAOgAAAAAIAACAAAABZGb1sTM9qQ32bkZrkwtI62+Wp/mIE+3VCyeIHS0hYviAAAAB9EKPQEHGOKCCpzdm3a3TOtUFH+YgkLEoeVnotWye5KEAAAABsaLGBM5Nw11msPIlZNX/+UMwA1fzTsfi3/4HRZSiEbMKIEtbbcCoG1xC+ekSxAnaML276Mqi/pusiXzVQhwHp</DTS:Password>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\데이터 흐름 태스크"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="데이터 흐름 태스크"
+      DTS:DTSID="{0C9CDBDF-7225-47CF-9D15-83E82B9302F0}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="데이터 흐름 태스크"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\데이터 흐름 태스크\ADO NET 원본"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="해당하는 .NET Framework 데이터 공급자를 통해 SQL Server, OLE DB, ODBC 또는 Oracle의 데이터를 사용합니다. Transact-SQL 문을 사용하여 결과 집합을 정의합니다. 예를 들어 SQL Server용 .NET Framework 데이터 공급자를 사용하여 SQL Server에서 데이터를 추출할 수 있습니다.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All rights reserved; http://www.microsoft.com/sql/support;4"
+              description="해당하는 .NET Framework 데이터 공급자를 통해 SQL Server, OLE DB, ODBC 또는 Oracle의 데이터를 사용합니다. Transact-SQL 문을 사용하여 결과 집합을 정의합니다. 예를 들어 SQL Server용 .NET Framework 데이터 공급자를 사용하여 SQL Server에서 데이터를 추출할 수 있습니다."
+              name="ADO NET 원본"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="데이터 추출을 위해 구성 요소에서 사용하는 SQL 문을 지정합니다."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="명령이 종료되기 전의 제한 시간 값(초)입니다. 값 0은 제한 시간이 없음을 나타냅니다."
+                  name="CommandTimeout">30</property>
+                <property
+                  dataType="System.Boolean"
+                  description="문자열이 아닌 외부 열을 출력 열에서 암시적으로 문자열로 변환할 수 있는지 여부를 나타냅니다."
+                  name="AllowImplicitStringConversion">true</property>
+                <property
+                  dataType="System.String"
+                  description="원본 데이터베이스 테이블 이름입니다."
+                  expressionType="Notify"
+                  name="TableOrViewName"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">"dbo"."titles"</property>
+                <property
+                  dataType="System.Int32"
+                  description="외부 열 정보를 검색할 모드를 지정합니다."
+                  name="AccessMode"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.DataReaderSourceAdapter</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\데이터 흐름 태스크\ADO NET 원본.Connections[IDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[SSIS2016.pubs.pubsuser]"
+                  connectionManagerRefId="Package.ConnectionManagers[SSIS2016.pubs.pubsuser]"
+                  description="관리되는 연결 관리자"
+                  name="IDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력]"
+                  name="ADO NET 원본 출력">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[title_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[title_id]"
+                      length="6"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[title_id]"
+                      name="title_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[title]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[title]"
+                      length="80"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[title]"
+                      name="title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[type]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[type]"
+                      length="12"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[type]"
+                      name="type"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[pub_id]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[pub_id]"
+                      length="4"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[pub_id]"
+                      name="pub_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[price]"
+                      dataType="cy"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[price]"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[price]"
+                      name="price"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[advance]"
+                      dataType="cy"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[advance]"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[advance]"
+                      name="advance"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[royalty]"
+                      dataType="i4"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[royalty]"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[royalty]"
+                      name="royalty"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[ytd_sales]"
+                      dataType="i4"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[ytd_sales]"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[ytd_sales]"
+                      name="ytd_sales"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[notes]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[notes]"
+                      length="200"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[notes]"
+                      name="notes"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[pubdate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="변환"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[pubdate]"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[pubdate]"
+                      name="pubdate"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[title_id]"
+                      dataType="wstr"
+                      length="6"
+                      name="title_id" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[title]"
+                      dataType="wstr"
+                      length="80"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[type]"
+                      dataType="wstr"
+                      length="12"
+                      name="type" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[pub_id]"
+                      dataType="wstr"
+                      length="4"
+                      name="pub_id" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[price]"
+                      dataType="cy"
+                      name="price" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[advance]"
+                      dataType="cy"
+                      name="advance" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[royalty]"
+                      dataType="i4"
+                      name="royalty" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[ytd_sales]"
+                      dataType="i4"
+                      name="ytd_sales" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[notes]"
+                      dataType="wstr"
+                      length="200"
+                      name="notes" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].ExternalColumns[pubdate]"
+                      dataType="dbTimeStamp"
+                      name="pubdate" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력]"
+                  isErrorOut="true"
+                  name="ADO NET 원본 오류 출력">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[title_id]"
+                      dataType="wstr"
+                      length="6"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[title_id]"
+                      name="title_id" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[title]"
+                      dataType="wstr"
+                      length="80"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[title]"
+                      name="title" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[type]"
+                      dataType="wstr"
+                      length="12"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[type]"
+                      name="type" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[pub_id]"
+                      dataType="wstr"
+                      length="4"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[pub_id]"
+                      name="pub_id" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[price]"
+                      dataType="cy"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[price]"
+                      name="price" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[advance]"
+                      dataType="cy"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[advance]"
+                      name="advance" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[royalty]"
+                      dataType="i4"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[royalty]"
+                      name="royalty" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[ytd_sales]"
+                      dataType="i4"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[ytd_sales]"
+                      name="ytd_sales" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[notes]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[notes]"
+                      name="notes" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[pubdate]"
+                      dataType="dbTimeStamp"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[pubdate]"
+                      name="pubdate" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 오류 출력].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\데이터 흐름 태스크\파생 열"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="파생 열;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All rights reserved; http://www.microsoft.com/sql/support;0"
+              description="변환 입력 열에 식을 적용하여 새 열 값을 만듭니다. 이때 새 열을 만들거나 기존 열을 덮어씁니다. 예를 들어 '이름' 및 '성' 열의 값을 연결하여 '전체 이름' 열을 만들 수 있습니다."
+              name="파생 열"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\데이터 흐름 태스크\파생 열.Inputs[파생 열 입력]"
+                  description="파생 열 변환에 대한 입력"
+                  name="파생 열 입력">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\데이터 흐름 태스크\파생 열.Inputs[파생 열 입력].Columns[price]"
+                      cachedDataType="cy"
+                      cachedName="price"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[price]" />
+                    <inputColumn
+                      refId="Package\데이터 흐름 태스크\파생 열.Inputs[파생 열 입력].Columns[ytd_sales]"
+                      cachedDataType="i4"
+                      cachedName="ytd_sales"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[ytd_sales]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 출력]"
+                  description="파생 열 변환의 기본 출력"
+                  exclusionGroup="1"
+                  name="파생 열 출력"
+                  synchronousInputId="Package\데이터 흐름 태스크\파생 열.Inputs[파생 열 입력]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 출력].Columns[ytd_sales_amount]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="계산"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 출력].Columns[ytd_sales_amount]"
+                      name="ytd_sales_amount"
+                      precision="30"
+                      scale="4"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="파생 열 식"
+                          name="Expression">#{Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[price]} * #{Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[ytd_sales]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="친숙한 파생 열 식"
+                          expressionType="Notify"
+                          name="FriendlyExpression">price * ytd_sales</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 오류 출력]"
+                  description="파생 열 변환의 오류 출력"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="파생 열 오류 출력"
+                  synchronousInputId="Package\데이터 흐름 태스크\파생 열.Inputs[파생 열 입력]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 오류 출력].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 오류 출력].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 오류 출력].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 오류 출력].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\데이터 흐름 태스크\플랫 파일 대상"
+              componentClassID="Microsoft.FlatFileDestination"
+              contactInfo="플랫 파일 대상;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All rights reserved; http://www.microsoft.com/sql/support;1"
+              description="플랫 파일 대상"
+              localeId="1042"
+              name="플랫 파일 대상"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="데이터가 대상 파일을 덮어쓰는지 또는 대상 파일에 추가되는지를 지정합니다."
+                  name="Overwrite">false</property>
+                <property
+                  dataType="System.Null"
+                  description="데이터를 쓰기 전에 대상 파일에 쓸 텍스트를 지정합니다."
+                  expressionType="Notify"
+                  name="Header" />
+                <property
+                  dataType="System.Boolean"
+                  description="텍스트 한정자를 사용하도록 설정하는 경우 대상 파일에 기록된 데이터의 텍스트 한정자를 이스케이프할지 여부를 지정합니다."
+                  name="EscapeQualifier">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\데이터 흐름 태스크\플랫 파일 대상.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[BookSales]"
+                  connectionManagerRefId="Package.ConnectionManagers[BookSales]"
+                  name="FlatFileConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력]"
+                  hasSideEffects="true"
+                  name="플랫 파일 대상 입력">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력].Columns[title]"
+                      cachedDataType="wstr"
+                      cachedLength="80"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력].ExternalColumns[title]"
+                      lineageId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력].Columns[title]" />
+                    <inputColumn
+                      refId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력].Columns[ytd_sales_amount]"
+                      cachedDataType="numeric"
+                      cachedName="ytd_sales_amount"
+                      cachedPrecision="30"
+                      cachedScale="4"
+                      externalMetadataColumnId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력].ExternalColumns[ytd_sales_amount]"
+                      lineageId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 출력].Columns[ytd_sales_amount]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력].ExternalColumns[title]"
+                      codePage="949"
+                      dataType="str"
+                      length="50"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력].ExternalColumns[ytd_sales_amount]"
+                      codePage="949"
+                      dataType="str"
+                      length="50"
+                      name="ytd_sales_amount" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\데이터 흐름 태스크.Paths[ADO NET 원본 출력]"
+              endId="Package\데이터 흐름 태스크\파생 열.Inputs[파생 열 입력]"
+              name="ADO NET 원본 출력"
+              startId="Package\데이터 흐름 태스크\ADO NET 원본.Outputs[ADO NET 원본 출력]" />
+            <path
+              refId="Package\데이터 흐름 태스크.Paths[파생 열 출력]"
+              endId="Package\데이터 흐름 태스크\플랫 파일 대상.Inputs[플랫 파일 대상 입력]"
+              name="파생 열 출력"
+              startId="Package\데이터 흐름 태스크\파생 열.Outputs[파생 열 출력]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\파일 시스템 태스크"
+      DTS:CreationName="Microsoft.FileSystemTask"
+      DTS:Description="파일 시스템 태스크"
+      DTS:DTSID="{B5012927-6FE6-4458-AB93-83606B0C1687}"
+      DTS:ExecutableType="Microsoft.FileSystemTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="파일 시스템 태스크"
+      DTS:TaskContact="File System Task;Microsoft Corporation; SQL Server 2019; © 2019 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <FileSystemData
+          TaskOperationType="DeleteFile"
+          TaskSourcePath="{41EBBFC7-4D7F-4840-8195-010AAC2ABF28}" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[제약 조건]"
+      DTS:CreationName=""
+      DTS:DTSID="{618D9B16-CDB5-4650-8685-18FD7181BB16}"
+      DTS:From="Package\파일 시스템 태스크"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="제약 조건"
+      DTS:To="Package\데이터 흐름 태스크" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--이 CDATA 섹션에는 패키지에 대한 레이아웃 정보가 포함되어 있습니다. 이 섹션에는 (x,y) 좌표, 너비 및 높이와 같은 정보가 포함되어 있습니다.-->
+<!--이 섹션을 수동으로 편집할 때 실수한 경우 해당 내용을 삭제할 수 있습니다. -->
+<!--패키지를 계속 수동으로 로드할 수 있지만 이전 레이아웃 정보가 손실되고 디자이너가 디자인 화면의 요소를 자동으로 다시 정렬합니다.-->
+<Objects
+  Version="8">
+  <!--아래의 각 노드에는 런타임 동작에 영향을 미치지 않는 속성이 포함됩니다.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="183,42"
+          Id="Package\데이터 흐름 태스크"
+          TopLeft="102.499995927016,168.999991365842" />
+        <NodeLayout
+          Size="183,42"
+          Id="Package\파일 시스템 태스크"
+          TopLeft="100.833329326577,74.28571049048" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[제약 조건]"
+          TopLeft="193.166662626796,116.28571049048">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.714280875362"
+              Start="0,0"
+              End="0,45.214280875362">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.214280875362" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\데이터 흐름 태스크">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="159,42"
+          Id="Package\데이터 흐름 태스크\플랫 파일 대상"
+          TopLeft="114.999995430311,224.714274233702" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\데이터 흐름 태스크\파생 열"
+          TopLeft="134.166661335363,140.214278550781" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\데이터 흐름 태스크\ADO NET 원본"
+          TopLeft="113.333328829872,58.499997011253" />
+        <EdgeLayout
+          Id="Package\데이터 흐름 태스크.Paths[파생 열 출력]"
+          TopLeft="194.083328382837,182.214278550781">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42.499995682921"
+              Start="0,0"
+              End="0,34.999995682921">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.999995682921" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\데이터 흐름 태스크.Paths[ADO NET 원본 출력]"
+          TopLeft="193.499995082617,100.499997011253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,39.7142815395279"
+              Start="0,0"
+              End="0,32.2142815395279">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,32.2142815395279" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
